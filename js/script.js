@@ -52,6 +52,7 @@ function lvlBlock(lvl) {
 
 function cicleLvl(nBoxes) {
 
+    const blackList = [];
     let n = 0;
 
     for (let i = 1; i < nBoxes + 1; i++) {
@@ -80,14 +81,15 @@ function cicleLvl(nBoxes) {
                 boxElement.classList.add('bomb');
                 // quando perdi 
                 gridElement.classList.add('pe-none');
+                points.innerHTML = `You lose! Your score is: ${n}`;
+                
             } else {
                 this.classList.add('bg-aquamarine');
 
                 n++;
+                points.innerHTML = `Your score is: ${n}`;
             }
 
-            points.innerHTML = `Your score: ${n}`;
-            console.log(n);
 
             
         });
@@ -95,7 +97,6 @@ function cicleLvl(nBoxes) {
 
     
 
-    const blackList = [];
     for (let i = 0; i < 16; i++) {
         blackList.push(checkUniqueNumber(blackList, 1, nBoxes));
     };
