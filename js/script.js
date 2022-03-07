@@ -51,8 +51,10 @@ function lvlBlock(lvl) {
 
 
 function cicleLvl(nBoxes) {
-    for (let i = 1; i < nBoxes + 1; i++) {
 
+    let n = 0;
+
+    for (let i = 1; i < nBoxes + 1; i++) {
          // ! aggiunto elementi al DOM in modo dinamico
         const boxElement = document.createElement('div');
         boxElement.classList.add('box');
@@ -71,24 +73,32 @@ function cicleLvl(nBoxes) {
         boxElement.innerHTML = i;
 
         boxElement.addEventListener('click', function() {
-            this.classList.add('bg-aquamarine');
+
+            const points = document.getElementById('result');
 
             if (blackList.includes(i)) {
                 boxElement.classList.add('bomb');
+                // quando perdi 
+                gridElement.classList.add('pe-none');
+            } else {
+                this.classList.add('bg-aquamarine');
+
+                n++;
             }
 
-        });
+            points.innerHTML = `Your score: ${n}`;
+            console.log(n);
 
+            
+        });
     }
+
+    
 
     const blackList = [];
-
-        for (let i = 0; i < 16; i++) {
-
-            blackList.push(checkUniqueNumber(blackList, 1, nBoxes));
-    
-    }
-
+    for (let i = 0; i < 16; i++) {
+        blackList.push(checkUniqueNumber(blackList, 1, nBoxes));
+    };
     console.log(blackList);
 }
 
@@ -122,5 +132,3 @@ function checkUniqueNumber(blacklist, min, max) {
     return randomInt;
 
 }
-
-

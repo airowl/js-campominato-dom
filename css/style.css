@@ -15,16 +15,23 @@ main{
     padding: 2rem;
 }
 
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
 #grid{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     width: 50rem;
     height: 50rem;
+}
+
+#result{
+    margin-top: 30px;
+    font-size: 2rem;
 }
 
 .box{
@@ -69,4 +76,8 @@ button{
 .bomb{
     background-color: brown;
     color: white;
+}
+
+.pe-none{
+    pointer-events: none;
 }
